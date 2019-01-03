@@ -29,8 +29,8 @@ public class Menu extends AppCompatActivity {
         img1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent in = new Intent( Menu.this, validarUsuarios.class );
-                //startActivity( in );
+                Intent in = new Intent( Menu.this, validarUsuarios.class );
+                startActivity( in );
             }
         } );
 

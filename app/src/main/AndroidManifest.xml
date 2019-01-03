@@ -20,7 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Menu" />
-        <activity android:name=".validarUsuarios"></activity>
+        <activity android:name=".validarUsuarios" />
+        <activity android:name=".consultaCC" />
+        <activity android:name=".ResutadoConsultaCC"></activity>
     </application>
 
 </manifest>
