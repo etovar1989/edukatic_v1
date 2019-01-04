@@ -129,6 +129,7 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         setContentView( myScannerView );
         myScannerView.setResultHandler( this );
         myScannerView.startCamera();
+
     }
 
 
@@ -152,15 +153,18 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         dato = result.getText();
 
         Toast.makeText( this,"Consulta "+dato, Toast.LENGTH_SHORT).show();
-        enviarDato(dato);
+        Intent in = new Intent( consultaQR.this, ResultadoConsultaQR.class );
+        in.putExtra( "cc",dato);
+        startActivity( in );
+        finish();
+
+
     }
 
     private void enviarDato(String dato) {
-
-        Intent carajo = new Intent( consultaQR.this, ResultadoConsultaQR.class );
-        carajo.putExtra( "cc",dato);
-        startActivity( carajo );
-        finish();
+        Intent in = new Intent( consultaQR.this, ResultadoConsultaQR.class );
+        in.putExtra( "cc",dato);
+        startActivity( in );
     }
 
 
