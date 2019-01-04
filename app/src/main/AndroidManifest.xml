@@ -3,7 +3,7 @@
     package="com.example.l.edukatic_v1">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -23,7 +23,8 @@
         <activity android:name=".validarUsuarios" />
         <activity android:name=".consultaCC" />
         <activity android:name=".ResutadoConsultaCC" />
-        <activity android:name=".consultaQR"></activity>
+        <activity android:name=".consultaQR" />
+        <activity android:name=".ResultadoConsultaQR"></activity>
     </application>
 
 </manifest>

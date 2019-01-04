@@ -130,15 +130,31 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         myScannerView.startCamera();
     }
 
+
+
+
+
+
     @Override
     public void handleResult(Result result) {
 
         Log.v("HnadleResult", result.getText());
+
+        /*
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
         builder.setTitle( "Resultado del Scan" );
         builder.setMessage( result.getText() );
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+        */
+
+
+        Intent carajo = new Intent( consultaQR.this, ResultadoConsultaQR.class );
+        carajo.putExtra( "cc",result.getText());
+        startActivity( carajo );
+
+
+
     }
 
     @Override
