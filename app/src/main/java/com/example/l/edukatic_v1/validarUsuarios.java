@@ -31,7 +31,9 @@ public class validarUsuarios extends AppCompatActivity {
         img2.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent in = new Intent( validarUsuarios.this, consultaQR.class );
+                startActivity( in );
+                finish();
             }
         } );
 

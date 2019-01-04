@@ -22,7 +22,8 @@
         <activity android:name=".Menu" />
         <activity android:name=".validarUsuarios" />
         <activity android:name=".consultaCC" />
-        <activity android:name=".ResutadoConsultaCC"></activity>
+        <activity android:name=".ResutadoConsultaCC" />
+        <activity android:name=".consultaQR"></activity>
     </application>
 
 </manifest>
