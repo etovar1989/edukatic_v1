@@ -27,6 +27,7 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
 
     private ZXingScannerView myScannerView;
     Button btnEcanear;
+    String dato="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,7 +139,7 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
     @Override
     public void handleResult(Result result) {
 
-        Log.v("HnadleResult", result.getText());
+        //Log.v("HnadleResult", result.getText());
 
         /*
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
@@ -148,14 +149,20 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         alertDialog.show();
         */
 
+        dato = result.getText();
+
+        Toast.makeText( this,"Consulta "+dato, Toast.LENGTH_SHORT).show();
+        enviarDato(dato);
+    }
+
+    private void enviarDato(String dato) {
 
         Intent carajo = new Intent( consultaQR.this, ResultadoConsultaQR.class );
-        carajo.putExtra( "cc",result.getText());
+        carajo.putExtra( "cc",dato);
         startActivity( carajo );
-
-
-
+        finish();
     }
+
 
     @Override
     public void onPointerCaptureChanged(boolean hasCapture) {
