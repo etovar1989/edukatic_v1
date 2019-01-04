@@ -33,6 +33,7 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_consulta_qr );
 
+        /*
         btnEcanear = (Button) findViewById( R.id.btnScanQR );
 
         if( validaPermisos()){
@@ -40,7 +41,7 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         }else{
             btnEcanear.setEnabled( false );
         }
-
+        */
 
     }
 
