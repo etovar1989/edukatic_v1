@@ -21,9 +21,9 @@ public class validarUsuarios extends AppCompatActivity {
         img1.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent in = new Intent( validarUsuarios.this, consultaCC.class );
-                //startActivity( in );
-                //finish();
+                Intent in = new Intent( validarUsuarios.this, consultaCC.class );
+                startActivity( in );
+                finish();
             }
         } );
 
