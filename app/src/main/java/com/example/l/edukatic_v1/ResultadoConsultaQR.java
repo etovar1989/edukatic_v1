@@ -24,7 +24,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
 
     RequestQueue rq;
     JsonRequest jrq;
-    private TextView tv1;
+    private TextView tv1,tv2,tv3,tv4,tv5;
 
     String datosCC="";
     String nombre = "";
@@ -32,6 +32,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
     String ubicacion = "";
     String requisitos = "";
     String expositor = "";
+    ImageView img1;
 
 
     @Override
@@ -39,24 +40,31 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_resultado_consulta_qr );
 
-        tv1 = (TextView)findViewById( R.id.textoCC );
-        String dato = getIntent().getStringExtra( "cc" );
-        tv1.setText(dato);
-        datosCC = tv1.toString();
+
+        img1 = (ImageView) findViewById( R.id.imgBk2 );
+        img1.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        } );
+
         rq = Volley.newRequestQueue(this);
         validarCedula();
 
     }
 
-    private void validarCedula() {
-        String url="http://edukatic.icesi.edu.co/complementos_apk/consultar_usuario.php?idU="+datosCC;
+    private void validarCedula( ) {
+        String dato = getIntent().getStringExtra( "cc" );
+        String url="http://edukatic.icesi.edu.co/complementos_apk/consultar_usuario.php?idU=" + dato;
         jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq.add(jrq);
     }
 
+
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText( this,"No esta registrada la cedula ", Toast.LENGTH_LONG).show();
+        Toast.makeText( this,"No esta registrada la cedula " + datosCC, Toast.LENGTH_LONG).show();
 
     }
 
@@ -81,7 +89,20 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
         }
 
 
-        Toast.makeText( this,"OK "+nombre, Toast.LENGTH_SHORT).show();
+        //Toast.makeText( this,"OK "+nombre, Toast.LENGTH_SHORT).show();
+
+        tv1 = (TextView)findViewById( R.id.textoNombre );
+        tv2 = (TextView)findViewById( R.id.textoTaller );
+        tv3 = (TextView)findViewById( R.id.textoUbicacion );
+        tv4 = (TextView)findViewById( R.id.textoRequisito );
+        tv5 = (TextView)findViewById( R.id.textoTallerista );
+
+
+        tv1.setText(nombre);
+        tv2.setText(ubicacion);
+        tv3.setText(taller);
+        tv4.setText(requisitos);
+        tv5.setText(expositor);
 
 
 
