@@ -32,7 +32,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
     String ubicacion = "";
     String requisitos = "";
     String expositor = "";
-    ImageView img1;
+    ImageView img1,img2;
 
 
     @Override
@@ -46,6 +46,15 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        } );
+
+        img2 = (ImageView) findViewById( R.id.imgScan );
+        img2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent( ResultadoConsultaQR.this, consultaQR.class );
+                startActivity( in );
             }
         } );
 
