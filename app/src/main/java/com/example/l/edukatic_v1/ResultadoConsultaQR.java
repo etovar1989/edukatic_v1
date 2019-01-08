@@ -56,6 +56,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
                 Intent in = new Intent( ResultadoConsultaQR.this, consultaQR.class );
                 startActivity( in );
                 finish();
+
             }
         } );
 
