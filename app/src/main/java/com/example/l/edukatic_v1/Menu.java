@@ -1,6 +1,12 @@
 package com.example.l.edukatic_v1;
 
+import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +18,8 @@ public class Menu extends AppCompatActivity {
 
     private TextView tv1;
     ImageView img1,img2,img3,img4,img5;
+
+    private final int SOLICTUD_PERMISO_CAMARA = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,28 +84,59 @@ public class Menu extends AppCompatActivity {
         } );
 
 
+        if(ActivityCompat.checkSelfPermission( this, Manifest.permission.CAMERA ) == PackageManager.PERMISSION_GRANTED){
+            Toast.makeText( this,"Se otorgo el permiso", Toast.LENGTH_SHORT).show();
+        }else{
+            explicarPermiso();
+            solictarPermisoCamara();
+
+        }
+
+    }//final de onCreate
 
 
 
+
+    private void solictarPermisoCamara() {
+        //0. pedir permiso con cuadros de dialogo del sistema
+        ActivityCompat.requestPermissions( this, new String[]{Manifest.permission.CAMERA}, SOLICTUD_PERMISO_CAMARA );
+        Toast.makeText( this,"Permiso camara", Toast.LENGTH_SHORT).show();
 
     }
 
-
-    public void dia1(View view){
-        Toast.makeText( this,"Dìa 1",Toast.LENGTH_SHORT ).show();
-        //Intent in = new Intent( Menu.this, dia1.class );
-        //startActivity( in );
+    private void explicarPermiso() {
+        Toast.makeText( this,"Permiso requerido para el correcto funcionamiento de la apliacion", Toast.LENGTH_SHORT).show();
+        alertDialogoBasico();
     }
 
-    public void dia2(View view){
-        Toast.makeText( this,"Dìa 2",Toast.LENGTH_SHORT ).show();
-        //Intent in = new Intent( Menu.this, dia2.class );
-        //startActivity( in );
+    private void alertDialogoBasico() {
+        //1. Instanciar el AlertDialog.Builder con este constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder( this );
+
+        //2. Encadenar varios metodos setter para ajustar las caracteristicas del dialogo
+        builder.setMessage( "Sin permisos para la camara no funcionara la lectura de QR" );
+
+        builder.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        } );
+        builder.show();
     }
 
-    public void dia3(View view){
-        Toast.makeText( this,"Dìa 3",Toast.LENGTH_SHORT ).show();
-        //Intent in = new Intent( Menu.this, dia3.class );
-        //startActivity( in );
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult( requestCode, permissions, grantResults );
+
+        if(requestCode == SOLICTUD_PERMISO_CAMARA){
+            if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+                Toast.makeText( this,"Se otorgo el permiso", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText( this,"NO otorgo el permiso", Toast.LENGTH_SHORT).show();
+            }
+        }
+
     }
 }

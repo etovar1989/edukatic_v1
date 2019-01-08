@@ -55,6 +55,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
             public void onClick(View view) {
                 Intent in = new Intent( ResultadoConsultaQR.this, consultaQR.class );
                 startActivity( in );
+                finish();
             }
         } );
 
@@ -108,8 +109,8 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
 
 
         tv1.setText(nombre);
-        tv2.setText(ubicacion);
-        tv3.setText(taller);
+        tv2.setText(taller);
+        tv3.setText(ubicacion);
         tv4.setText(requisitos);
         tv5.setText(expositor);
 

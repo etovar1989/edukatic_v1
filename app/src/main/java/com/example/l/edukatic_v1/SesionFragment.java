@@ -36,8 +36,7 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //return inflater.inflate( R.layout.fragment_sesion, container, false );
+
         View vista = inflater.inflate( R.layout.fragment_sesion,container,false );
         cajaUser = (EditText)vista.findViewById( R.id.txtUsuario );
         cajaPws = (EditText)vista.findViewById( R.id.txtClave );
@@ -70,7 +69,7 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
 
     @Override
     public void onResponse(JSONObject response) {
-        Toast.makeText( getContext(),"Se ha encontrado el usuario "+ cajaUser.getText().toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText( getContext(),"Se ha encontrado el usuario "+ cajaUser.getText().toString(), Toast.LENGTH_LONG).show();
         com.example.l.edukatic2019v1.User usuario = new com.example.l.edukatic2019v1.User();
 
         JSONArray jsonArray = response.optJSONArray( "datos" );
