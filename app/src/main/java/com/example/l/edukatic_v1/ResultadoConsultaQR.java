@@ -76,6 +76,7 @@ public class ResultadoConsultaQR extends AppCompatActivity implements Response.L
     @Override
     public void onErrorResponse(VolleyError error) {
         Toast.makeText( this,"No esta registrada la cedula " + datosCC, Toast.LENGTH_LONG).show();
+        finish();
 
     }
 

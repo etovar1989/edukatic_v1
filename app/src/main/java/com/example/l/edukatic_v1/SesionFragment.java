@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -33,6 +34,9 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
     EditText cajaUser, cajaPws;
     Button consultar;
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,6 +58,9 @@ public class SesionFragment extends Fragment implements Response.Listener<JSONOb
 
 
         return vista;
+
+
+
 
 
 

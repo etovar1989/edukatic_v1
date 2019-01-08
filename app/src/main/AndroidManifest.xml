@@ -24,7 +24,8 @@
         <activity android:name=".consultaCC" />
         <activity android:name=".ResutadoConsultaCC" />
         <activity android:name=".consultaQR" />
-        <activity android:name=".ResultadoConsultaQR"></activity>
+        <activity android:name=".ResultadoConsultaQR" />
+        <activity android:name=".dia1"></activity>
     </application>
 
 </manifest>
