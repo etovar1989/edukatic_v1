@@ -5,12 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class d1Menu extends AppCompatActivity {
 
     ImageView img1,img2,img3;
-    String dato1;
+    String dato1, dato2;
+    TextView textoTipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,10 @@ public class d1Menu extends AppCompatActivity {
         String opcM = usuario.getD1m();
 
         dato1 = getIntent().getStringExtra( "opc" );
+        dato2 = getIntent().getStringExtra( "tipo" );
+
+        textoTipo = (TextView)findViewById( R.id.txtTipo );
+        textoTipo.setText( dato2 );
 
         //Toast.makeText( this,"OK "+dato1, Toast.LENGTH_SHORT).show();
 
@@ -34,6 +40,7 @@ public class d1Menu extends AppCompatActivity {
 
                 Intent in = new Intent( d1Menu.this, d1ValCC.class );
                 in.putExtra( "opc",dato1 );
+                in.putExtra( "tipo",dato2 );
                 startActivity( in );
             }
         } );

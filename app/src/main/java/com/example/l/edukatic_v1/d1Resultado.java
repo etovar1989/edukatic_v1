@@ -19,9 +19,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/*
+* Ojo te falta el dato del codigo del taller o definir codigos para talleres ;<
+*
+* */
+
 public class d1Resultado extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
 
-    String opc,cc, dato1;
+    String opc,cc, dato1, tipo;
+    TextView textoTipo;
+
     RequestQueue rq;
     JsonRequest jrq;
 
@@ -36,6 +43,15 @@ public class d1Resultado extends AppCompatActivity implements Response.ErrorList
         opc = getIntent().getStringExtra( "opc" );
         cc = getIntent().getStringExtra( "cc" );
 
+        //Recupero texto enviado
+        tipo = getIntent().getStringExtra( "tipo" );
+
+        //busco texto para cambiar el texto que este muestra
+        textoTipo = (TextView) findViewById( R.id.tipoTexto2 );
+        //Envio el texto recuperado del inten
+        textoTipo.setText( tipo );
+
+        //
         //Toast.makeText( this,"OK "+opc, Toast.LENGTH_SHORT).show();
         //Toast.makeText( this,"OK "+cc, Toast.LENGTH_SHORT).show();
 
