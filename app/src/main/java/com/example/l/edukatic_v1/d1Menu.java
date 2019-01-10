@@ -51,8 +51,9 @@ public class d1Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent in = new Intent( d1Menu.this, d1Menu.class );
+                Intent in = new Intent( d1Menu.this, d1ValQR.class );
                 in.putExtra( "opc",dato1 );
+                in.putExtra( "tipo",dato2 );
                 startActivity( in );
             }
         } );

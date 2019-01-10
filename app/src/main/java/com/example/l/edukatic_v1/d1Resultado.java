@@ -75,7 +75,7 @@ public class d1Resultado extends AppCompatActivity implements Response.ErrorList
     private void validarCedula( ) {
         opc = getIntent().getStringExtra( "opc" );
         cc = getIntent().getStringExtra( "cc" );
-        String url="http://edukatic.icesi.edu.co/complementos_apk/d1.php?idU=" + cc +"&opc="+opc+"&taller=1";
+        String url="http://edukatic.icesi.edu.co/complementos_apk/d1.php?idU=" + cc +"&opc="+opc+"&dia=1";
         jrq = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         rq.add(jrq);
     }

@@ -35,6 +35,8 @@ public class consultaQR extends AppCompatActivity implements ZXingScannerView.Re
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_consulta_qr );
 
+
+
     }
 
 

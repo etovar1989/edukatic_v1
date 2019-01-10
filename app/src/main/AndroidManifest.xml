@@ -28,7 +28,8 @@
         <activity android:name=".dia1" />
         <activity android:name=".d1ValCC" />
         <activity android:name=".d1Menu" />
-        <activity android:name=".d1Resultado"></activity>
+        <activity android:name=".d1Resultado" />
+        <activity android:name=".d1ValQR"></activity>
     </application>
 
 </manifest>
