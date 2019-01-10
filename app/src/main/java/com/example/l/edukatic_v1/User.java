@@ -1,7 +1,17 @@
-package com.example.l.edukatic2019v1;
+package com.example.l.edukatic_v1;
 
 public class User {
-    private String user,pws,names,lastN;
+    private String user,pws,names,lastN, d1m;
+
+    public String getD1m() {
+        return d1m;
+    }
+
+    public void setD1m(String d1m) {
+        this.d1m = d1m;
+    }
+
+
 
     public String getUser() {
         return user;

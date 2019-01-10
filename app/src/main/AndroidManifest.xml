@@ -25,7 +25,10 @@
         <activity android:name=".ResutadoConsultaCC" />
         <activity android:name=".consultaQR" />
         <activity android:name=".ResultadoConsultaQR" />
-        <activity android:name=".dia1"></activity>
+        <activity android:name=".dia1" />
+        <activity android:name=".d1ValCC" />
+        <activity android:name=".d1Menu" />
+        <activity android:name=".d1Resultado"></activity>
     </application>
 
 </manifest>
