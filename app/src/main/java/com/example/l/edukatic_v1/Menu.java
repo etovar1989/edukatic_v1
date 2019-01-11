@@ -68,8 +68,8 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Intent in = new Intent( Menu.this, dia3.class );
-                //startActivity( in );
+                Intent in = new Intent( Menu.this, dia3.class );
+                startActivity( in );
             }
         } );
 
