@@ -31,9 +31,10 @@ public class d3Menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Intent in = new Intent( d3Menu.this, d3Menu.class );
-                //in.putExtra( "opc",dato1 );
-                //startActivity( in );
+                Intent in = new Intent( d3Menu.this, d3ValCC.class );
+                in.putExtra( "taller",dato1 );
+                in.putExtra( "opc",dato2 );
+                startActivity( in );
 
             }
         } );

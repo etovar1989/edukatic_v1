@@ -25,6 +25,7 @@ public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelecte
     private Spinner spT;
     String dato,opc;
 
+
     private AsyncHttpClient cliente;
 
     @Override
