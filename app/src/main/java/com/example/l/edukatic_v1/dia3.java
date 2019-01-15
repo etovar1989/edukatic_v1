@@ -21,9 +21,9 @@ import cz.msebera.android.httpclient.Header;
 
 public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
-    ImageView img1,img2,img3,img4;
+    ImageView img1,img2,img3;
     private Spinner spT;
-    String dato,opc;
+    String dato,opc, nombre;
 
 
     private AsyncHttpClient cliente;
@@ -43,13 +43,7 @@ public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelecte
 
         spT.setOnItemSelectedListener(this);
 
-        img4 = (ImageView) findViewById( R.id.imgB5 );
-        img4.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        } );
+
 
         img1 = (ImageView) findViewById( R.id.imgD3M1 );
         img1.setOnClickListener( new View.OnClickListener() {
@@ -59,6 +53,7 @@ public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelecte
                 Intent in = new Intent( dia3.this, d3Menu.class );
                 in.putExtra( "opc",opc );
                 in.putExtra( "taller",dato );
+                in.putExtra( "nombre",nombre );
                 startActivity( in );
             }
         } );
@@ -72,22 +67,21 @@ public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelecte
                 Intent in = new Intent( dia3.this, d3Menu.class );
                 in.putExtra( "opc", opc);
                 in.putExtra( "taller",dato );
+                in.putExtra( "nombre",nombre );
                 startActivity( in );
             }
         } );
 
 
-        img3 = (ImageView) findViewById( R.id.imgD3M3 );
+
+        img3 = (ImageView) findViewById( R.id.imgB5 );
         img3.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                opc="3";
-                Intent in = new Intent( dia3.this, d3Menu.class );
-                in.putExtra( "opc",opc );
-                in.putExtra( "taller",dato );
-                startActivity( in );
+                finish();
             }
         } );
+
 
 
 
@@ -134,8 +128,15 @@ public class dia3 extends AppCompatActivity implements AdapterView.OnItemSelecte
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        dato = parent.getItemAtPosition(position).toString();
-        //Toast.makeText( getApplicationContext(),dato, Toast.LENGTH_LONG).show();
+        //Texto
+        nombre = parent.getItemAtPosition(position).toString();
+        //Posicion
+        dato = String.valueOf( parent.getItemIdAtPosition(position) );
+        Toast.makeText( getApplicationContext(),nombre, Toast.LENGTH_LONG).show();
+        //Toast.makeText( this,"Opcion: "+parent.getItemIdAtPosition(position), Toast.LENGTH_SHORT).show();
+
+
+
     }
     public void onNothingSelected(AdapterView<?> arg0) {
     }

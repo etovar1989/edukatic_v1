@@ -1,6 +1,7 @@
 package com.example.l.edukatic_v1;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,6 +35,10 @@ public class d1ValQR extends AppCompatActivity implements ZXingScannerView.Resul
         textoTipo = (TextView) findViewById( R.id.txtTipo2 );
         //Envio el texto recuperado del inten
         textoTipo.setText( tipo );
+
+        if(tipo.equals( "Ingreso" )){
+            textoTipo.setTextColor( Color.rgb( 222,119,9 ));
+        }
 
         img1 = (ImageView) findViewById( R.id.imgB4 );
         img1.setOnClickListener( new View.OnClickListener() {

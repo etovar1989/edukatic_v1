@@ -14,7 +14,7 @@ public class d3ValCC extends AppCompatActivity {
 
     EditText cajaCC;
     Button consultarCC;
-    String taller,opc;
+    String taller,opc, dato;
     ImageView img1;
     TextView textoTipo;
 
@@ -28,12 +28,13 @@ public class d3ValCC extends AppCompatActivity {
         cajaCC = (EditText)findViewById( R.id.txtD1CC );
         //Recupero texto enviado
         taller = getIntent().getStringExtra( "taller" );
+        dato = getIntent().getStringExtra( "nombre" );
         //busco texto para cambiar el texto que este muestra
         textoTipo = (TextView) findViewById( R.id.txtTipo3 );
         //Envio el texto recuperado del inten
-        textoTipo.setText( taller );
+        textoTipo.setText( dato );
 
-        Toast.makeText( this,"Opcion"+taller, Toast.LENGTH_SHORT).show();
+        //Toast.makeText( this,"Opcion"+taller, Toast.LENGTH_SHORT).show();
 
         consultarCC = (Button) findViewById( R.id.btnD1Consultar );
         consultarCC.setOnClickListener( new View.OnClickListener() {
@@ -45,6 +46,7 @@ public class d3ValCC extends AppCompatActivity {
                 in.putExtra( "cc",cajaCC.getText().toString());
                 in.putExtra( "opc",opc );
                 in.putExtra( "taller",taller );
+                in.putExtra( "nombre",dato );
                 startActivity( in );
                 cajaCC.setText( "" );
 

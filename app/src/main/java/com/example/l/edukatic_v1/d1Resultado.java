@@ -1,5 +1,6 @@
 package com.example.l.edukatic_v1;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,10 @@ public class d1Resultado extends AppCompatActivity implements Response.ErrorList
         textoTipo = (TextView) findViewById( R.id.tipoTexto2 );
         //Envio el texto recuperado del inten
         textoTipo.setText( tipo );
+
+        if(tipo.equals( "Ingreso" )){
+            textoTipo.setTextColor( Color.rgb( 222,119,9 ));
+        }
 
         //
         //Toast.makeText( this,"OK "+opc, Toast.LENGTH_SHORT).show();

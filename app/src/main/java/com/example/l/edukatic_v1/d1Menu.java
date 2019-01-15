@@ -1,6 +1,7 @@
 package com.example.l.edukatic_v1;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +29,10 @@ public class d1Menu extends AppCompatActivity {
 
         textoTipo = (TextView)findViewById( R.id.txtTipo );
         textoTipo.setText( dato2 );
+
+        if(dato2.equals( "Ingreso" )){
+            textoTipo.setTextColor( Color.rgb( 222,119,9 ));
+        }
 
         //Toast.makeText( this,"OK "+dato1, Toast.LENGTH_SHORT).show();
 

@@ -22,14 +22,14 @@ import org.json.JSONObject;
 
 public class d3Resultado extends AppCompatActivity implements Response.ErrorListener, Response.Listener<JSONObject> {
 
-    String opc,cc, taller;
-    TextView texto;
+    String opc,cc, taller,nombre;
+    TextView texto, nom_taller;
     String dato1="";
 
     RequestQueue rq;
     JsonRequest jrq;
 
-    ImageView img1,img2, img3;
+    ImageView img1,img2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,12 @@ public class d3Resultado extends AppCompatActivity implements Response.ErrorList
         setContentView( R.layout.activity_d3_resultado );
 
 
+        nombre = getIntent().getStringExtra( "nombre" );
 
+        nom_taller = (TextView)findViewById( R.id.txtNombreTaller );
+        nom_taller.setText( nombre );
+
+        //txtNombreTaller
 
         //Toast.makeText( this,"OK "+taller, Toast.LENGTH_SHORT).show();
         //Toast.makeText( this,"OK "+opc, Toast.LENGTH_SHORT).show();
@@ -47,12 +52,13 @@ public class d3Resultado extends AppCompatActivity implements Response.ErrorList
         validarCedula();
 
 
-        /*
-
-        */
-        //texto.setcolor(#RGB);
-
-
+        img2 = (ImageView) findViewById( R.id.imgB7 );
+        img2.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        } );
 
 
     }
@@ -85,7 +91,7 @@ public class d3Resultado extends AppCompatActivity implements Response.ErrorList
             //Toast.makeText( this,dato1, Toast.LENGTH_SHORT).show();
             texto = (TextView)findViewById( R.id.txtRespuesta );
             texto.setText( dato1 );
-            if(dato1.equals( "No hay datos" ) || dato1.equals( "usuario no pertenece a ese taller" )){
+            if(dato1.equals( "No hay datos" ) || dato1.equals( "Este no es el taller de el profe" ) || dato1.equals( "Este profe ya hizo los dos registros" )){
                 texto.setTextColor( Color.RED);
             }
 

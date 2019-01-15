@@ -1,6 +1,7 @@
 package com.example.l.edukatic_v1;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,11 @@ public class d1ValCC extends AppCompatActivity {
         textoTipo = (TextView) findViewById( R.id.txtTipo1 );
         //Envio el texto recuperado del inten
         textoTipo.setText( tipo );
+
+        if(tipo.equals( "Ingreso" )){
+            textoTipo.setTextColor( Color.rgb( 222,119,9 ));
+        }
+
 
         consultarCC = (Button) findViewById( R.id.btnD1Consultar );
         consultarCC.setOnClickListener( new View.OnClickListener() {

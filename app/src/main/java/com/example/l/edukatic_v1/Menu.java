@@ -85,7 +85,7 @@ public class Menu extends AppCompatActivity {
 
 
         if(ActivityCompat.checkSelfPermission( this, Manifest.permission.CAMERA ) == PackageManager.PERMISSION_GRANTED){
-            Toast.makeText( this,"Se otorgo el permiso", Toast.LENGTH_SHORT).show();
+            Toast.makeText( this,"Gracias por tu confianza, que la fuerza te acompañe", Toast.LENGTH_SHORT).show();
         }else{
             explicarPermiso();
             solictarPermisoCamara();
@@ -105,7 +105,7 @@ public class Menu extends AppCompatActivity {
     }
 
     private void explicarPermiso() {
-        Toast.makeText( this,"Permiso requerido para el correcto funcionamiento de la apliacion", Toast.LENGTH_SHORT).show();
+        Toast.makeText( this,"Los permisos son requeridos para el correcto funcionamiento de la aplicación.", Toast.LENGTH_SHORT).show();
         alertDialogoBasico();
     }
 
@@ -114,7 +114,7 @@ public class Menu extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder( this );
 
         //2. Encadenar varios metodos setter para ajustar las caracteristicas del dialogo
-        builder.setMessage( "Sin permisos para la camara no funcionara la lectura de QR" );
+        builder.setMessage( "Es necesario los permisos para la cámara, si quieres que se puedan leer los códigos QR. Por favor presiona ‘OK’" );
 
         builder.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
             @Override
@@ -132,9 +132,9 @@ public class Menu extends AppCompatActivity {
 
         if(requestCode == SOLICTUD_PERMISO_CAMARA){
             if(grantResults.length >0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText( this,"Se otorgo el permiso", Toast.LENGTH_SHORT).show();
+                Toast.makeText( this,"Gracias por tu confianza, que la fuerza te acompañe", Toast.LENGTH_SHORT).show();
             }else{
-                Toast.makeText( this,"NO otorgo el permiso", Toast.LENGTH_SHORT).show();
+                Toast.makeText( this,"No se otorgaron los permisos a la cámara, la aplicación no funcionara en su totalidad, no se podrán hacer la lectura de códigos QR. ", Toast.LENGTH_SHORT).show();
             }
         }
 
